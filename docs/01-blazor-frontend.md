@@ -1,16 +1,16 @@
-# 세션 01: Blazor 프론트엔드 웹 앱 개발
+# Session 01: Developing a Blazor Frontend Web App
 
-이 세션에서는 [Blazor 프론트엔드 웹 앱](https://learn.microsoft.com/ko-kr/aspnet/core/blazor?WT.mc_id=dotnet-121695-juyoo) 개발을 해 보겠습니다.
+In this session, we're going to develop a ![Blazor Frontend Web App](https://learn.microsoft.com/en-us/aspnet/core/blazor?WT.mc_id=dotnet-121695-juyoo).
 
-<!-- 이 세션에서는 [GitHub Copilot](https://docs.github.com/ko/copilot/overview-of-github-copilot/about-github-copilot-business) 기능을 활용해 빠르게 [Blazor 프론트엔드 웹 앱](https://learn.microsoft.com/ko-kr/aspnet/core/blazor?WT.mc_id=dotnet-121695-juyoo) 개발을 해 보겠습니다. -->
+<!-- In this session, we'll take advantage of ![GitHub Copilot](https://docs.github.com/en/copilot/overview-of-github-copilot/about-github-copilot-business) capabilities to quickly develop a ![Blazor front-end web app](https://learn.microsoft.com/en-us/aspnet/core/blazor?WT.mc_id=dotnet-121695-juyoo). -->
 
-> [GitHub Codespaces](https://docs.github.com/ko/codespaces/overview) 환경에서 작업하는 것을 기준으로 진행합니다. 로컬 개발 환경의 [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=dotnet-121695-juyoo)를 사용할 경우 대부분 비슷하지만 살짝 다를 수 있습니다.
+> [GitHub Codespaces](https://docs.github.com/ko/codespaces/overview) Proceed based on working in the environment. In your local development environment's [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=dotnet-121695-juyoo)is mostly similar, but may be slightly different.
 
 ![Architecture](./images/01-architecture.png)
 
-## 01-1: Blazor 프로젝트 생성하기
+## 01-1: Create a Blazor project
 
-1. 터미널을 열고 아래 명령어를 차례로 실행시켜 실습 디렉토리를 만들고 이동합니다.
+1. Open a terminal and run the command below to create and navigate to the lab directory.
 
     ```bash
     cd $CODESPACE_VSCODE_FOLDER
@@ -18,7 +18,7 @@
     cd workshop
     ```
 
-1. 아래 명령어를 차례로 실행시켜 Blazor 웹 앱 프로젝트를 생성합니다.
+1. Run the commands below to create a Blazor web app project.
 
     ```bash
     dotnet new sln -n AspireYouTubeSummariser
@@ -26,28 +26,28 @@
     dotnet sln add AspireYouTubeSummariser.WebApp
     ```
 
-1. 아래 명령어를 차례로 실행시켜 Blazor 웹 앱 프로젝트를 빌드하고 실행시킵니다.
+1. Run the commands below to build and run your Blazor web app project.
 
     ```bash
     dotnet restore && dotnet build
     dotnet run --project AspireYouTubeSummariser.WebApp
     ```
 
-> 여기까지 생성한 프로젝트는 [save-points/session-00](../save-points/session-00/)에서 확인할 수 있습니다.
+You can check out the project you have created so far in [save-points/session-00](../save-points/session-00/).
 
-## 01-2: UI Component 생성하기
+## 01-2: Create UI Component
 
-> 세이브 포인트에서 가져온 프로젝트를 사용하려면 아래 명령어를 차례로 실행시켜 프로젝트를 복원합니다.
->
->    ```bash
->    cd $CODESPACE_VSCODE_FOLDER
->    mkdir -p workshop && cp -a save-points/session-00/. workshop/
->    cd workshop
->    dotnet restore && dotnet build
->    ```
+To use a project imported from a save point, run the command below to restore the project.
 
-1. Solution Explorer에서 `Components` 디렉토리 밑에 `UI` 디렉토리를 생성합니다.
-1. `UI` 디렉토리 밑에 `YouTubeSummariserComponent`라는 이름으로 Razor Component 파일을 생성합니다. 생성된 파일 안에는 아래와 비슷한 내용이 이미 들어 있습니다.
+   ```bash
+   cd $CODESPACE_VSCODE_FOLDER
+   mkdir -p workshop && cp -a save-points/session-00/. workshop/
+   cd workshop
+   dotnet restore && dotnet build
+   ```
+
+1. In Solution Explorer Under the directory `Components` Create a directory `UI`.
+1. Under the `UI` directory, create a Razor Component file named `YouTubeSummariserComponent`. Inside the generated file, you'll already find something similar to the one below.
 
     ```razor
     <h3>YouTubeSummariserComponent</h3>
@@ -57,7 +57,7 @@
     }
     ```
 
-1. 위 내용을 모두 지운 후 아래 코드를 입력합니다.
+1. Clear all of the above and enter the code below.
 
     ```razor
     <div class="container">
@@ -125,14 +125,14 @@
     }
     ```
 
-1. `YouTubeSummariserComponent.razor` 파일의 맨 처음에 아래 내용을 입력합니다.
+1. At the beginning of the `YouTubeSummariserComponent.razor` file, enter the following:
 
     ```razor
     @using AspireYouTubeSummariser.WebApp.Clients
     @inject IApiAppClient ApiApp
     ```
 
-1. `YouTubeSummariserComponent.razor` 파일의 `SummariseAsync` 메서드 안에 아래 코드를 입력합니다.
+1. In the `YouTubeSummariserComponent.razor` file, enter the code below inside the `SummariseAsync` method.
 
     ```razor
     private async Task SummariseAsync()
@@ -149,7 +149,7 @@
     }
     ```
 
-1. `YouTubeSummariserComponent.razor` 파일의 `ClearAsync` 메서드를 아래와 같이 수정합니다.
+1. Modify the `ClearAsync` method in the `YouTubeSummariserComponent.razor` file as shown below.
 
     ```razor
     private async Task ClearAsync()
@@ -163,9 +163,9 @@
     }
     ```
 
-## 01-3: API Client 생성하기
+## 01-3: Create API Client
 
-1. Solution Explorer에서 `Clients` 디렉토리를 생성하고 그 안에 `ApiAppClient`라는 이름으로 C# 클래스 파일을 생성합니다. 생성된 파일 안에는 아래와 비슷한 내용이 이미 들어 있습니다.
+1. In Solution Explorer, create a `Clients` directory and create a C# class file named `ApiAppClient` in it. Inside the generated file, you'll already find something similar to the one below.
 
     ```csharp
     namespace AspireYouTubeSummariser.WebApp.Clients;
@@ -176,7 +176,7 @@
     }
     ```
 
-1. `namespace`와 `class` 사이에 아래와 같이 `IApiAppClient` 인터페이스를 추가합니다.
+1. Between `namespace` and `class`, add the `IApiAppClient` interface as shown below.
 
     ```csharp
     public interface IApiAppClient
@@ -185,7 +185,7 @@
     }
     ```
 
-1. 아래와 같이 `ApiAppClient` 클래스를 수정합니다.
+1. Modify the `ApiAppClient` class as shown below.
 
     ```csharp
     public class ApiAppClient : IApiAppClient
@@ -197,18 +197,18 @@
     }
     ```
 
-## 01-4: API Client에 의존성 주입하기
+## 01-4: Injecting dependencies into the API Client
 
-1. Solution Explorer에서 `Program.cs` 파일을 열고 `var app = builder.Build();` 라인 바로 위에 아래와 같이 `ApiAppClient`에 대한 의존성 주입을 추가합니다.
+1. Open the `Program.cs` file in Solution Explorer and add `var app = builder.Build();` line, add a dependency injection for `ApiAppClient` as shown below.
 
     ```csharp
     builder.Services.AddHttpClient<IApiAppClient, ApiAppClient>(p => p.BaseAddress = new Uri("http://localhost:5050"));
     ```
 
-   > 포트번호 `5050`은 임의의 번호로써, 나중에 변경해야 합니다.
+   The port number `5050` is a random number and will need to be changed later.
 
-1. 그러면 네임스페이스 참조를 할 수 없다는 오류가 발생합니다. 오류가 발생한 곳에 커서를 두고 `CTRL`+`.` 키 또는 `CMD`+`.` 키를 눌러 네임스페이스를 추가합니다.
-1. 다시 `ApiAppClient.cs` 파일을 열어 아래와 같이 생성자를 통해 `HttpClient` 인스턴스를 주입받도록 수정합니다.
+1. This will result in an error stating that the namespace reference is not possible. Place the cursor where the error occurred and press the `CTRL`+`.` key or the `CMD`+`.` key to add the namespace.
+1. Open the `ApiAppClient.cs` file again and modify it to inject an instance of `HttpClient` via the constructor, as shown below.
 
     ```csharp
     public class ApiAppClient(HttpClient http) : IApiAppClient
@@ -218,7 +218,7 @@
         public async Task<string> SummariseAsync(string youTubeLinkUrl, string videoLanguageCode, string summaryLanguageCode)
     ```
 
-1. 다시 `SummariseAsync` 메서드를 아래와 같이 수정합니다.
+1. Again, modify the `SummariseAsync` method as shown below.
 
     ```csharp
     public async Task<string> SummariseAsync(string youTubeLinkUrl, string videoLanguageCode, string summaryLanguageCode)
@@ -232,32 +232,31 @@
     }
     ```
 
-## 01-5: UI Component 페이지에 추가하기
+## 01-5: Adding to a UI Component Page
 
-1. Solution Explorer에서 `Components/Pages` 디렉토리 밑에 `Home.razor` 파일을 엽니다.
+1. In Solution Explorer, open the `Home.razor` file under the `Components/Pages` directory.
 
-1. 페이지의 맨 아래에 아래와 같이 `YouTubeSummariserComponent`를 추가합니다.
+1. At the bottom of the page, add a `YouTubeSummariserComponent` as shown below.
 
     ```razor
     <YouTubeSummariserComponent />
     ```
+This will result in an error stating that the namespace reference is not possible. Place the cursor where the error occurred and press the `CTRL`+`.` key or the `CMD`+`.` key to add the namespace.
 
-1. 네임스페이스 참조를 할 수 없다는 오류가 발생합니다. 오류가 발생한 곳에 커서를 두고 `CTRL`+`.` 키 또는 `CMD`+`.` 키를 눌러 네임스페이스를 추가합니다.
+## 01-6: Launch the Blazor Web App
 
-## 01-6: Blazor 웹 앱 실행하기
+1. In Solution Explorer, select the `AspireYouTubeSummariser.WebApp` project and right-click to run it in debugging mode.
 
-1. Solution Explorer에서 `AspireYouTubeSummariser.WebApp` 프로젝트를 선택하고 마우스 오른쪽 버튼을 눌러 디버깅 모드로 실행합니다.
-
-1. 첫 화면에서 아래와 같이 YouTube 링크를 입력하고 `Summarise!` 버튼을 클릭합니다.
+1. On the first screen, enter your YouTube link as shown below and click the `Summarise!` button.
 
     ![YouTubeSummariserComponent #1](./images/01-blazor-frontend-01.png)
 
-   > YouTube 링크는 무엇이든 상관 없습니다. 여기서는 [https://youtu.be/z1M-7Bms1Jg](https://youtu.be/z1M-7Bms1Jg) 링크를 사용합니다.
+   It doesn't matter what the YouTube link is. In this case, we use the [https://youtu.be/z1M-7Bms1Jg](https://youtu.be/z1M-7Bms1Jg) link.
 
-1. 그러면 아래와 같이 에러 메시지가 나오는 것을 확인할 수 있습니다.
+1. Then you can see the error message as below.
 
     ![YouTubeSummariserComponent #2](./images/01-blazor-frontend-02.png)
 
 ---
 
-축하합니다! Blazor 프론트엔드 웹 앱 개발이 끝났습니다. 이제 [Session 02: ASP.NET Core 백엔드 API 앱 개발](./02-aspnet-core-backend.md)로 넘어가세요.
+Congratulations! You're done developing your Blazor front-end web app. Now let's move on to [Session 02: Developing ASP.NET Core Backend API Apps](./02-aspnet-core-backend.md).
