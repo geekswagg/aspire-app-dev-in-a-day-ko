@@ -1,54 +1,42 @@
-# 세션 00: 개발 환경 설정
+Session 00: Setting Up Your Development Environment
 
-이 세션에서는 워크샵 진행을 위해 필요한 개발 환경 설정을 진행합니다.
+In this session, you will set up the development environment required to conduct the workshop.
 
-## Azure OpenAI 프록시 구독 신청
+## Subscribe to Azure OpenAI Proxy
 
-1. 아래 링크를 클릭해서 Azure OpenAI 프록시 구독을 신청합니다.
+1. Click the link below to sign up for an Azure OpenAI proxy subscription.
 
-   👉 구독 신청 링크: [https://aka.ms/aspireinadaykr/request](https://aka.ms/aspireinadaykr/request)
+   👉 Subscription Link: [https://aka.ms/aspireinadaykr/request](https://aka.ms/aspireinadaykr/request)
 
-1. 신청한 이메일을 통해 `DoNotReply@aoai.kr` 발신자로 Azure OpenAI 프록시 구독 코드가 온 것을 확인합니다.
+1. Confirm that the 'DoNotReply@cloudextend.net' sender has received your Azure OpenAI proxy subscription code via the email you subscribed.
 
-<!-- ## Azure OpenAI 프록시 구독 및 GitHub Copilot 구독 신청
+## Sign up for an Azure OpenAI proxy subscription and a GitHub Copilot subscription
 
-1. 아래 링크를 클릭해서 Azure OpenAI 프록시 구독 및 GitHub Copilot 구독을 신청합니다.
+1. Finalize your GitHub Copilot subscription via the link below.
 
-   👉 구독 신청 링크: [https://aka.ms/aspireinadaykr/request](https://aka.ms/aspireinadaykr/request)
+   👉 GitHub Copilot subscription sign-up link: [https://github.com/redeem](https://github.com/redeem)
 
-1. 신청한 이메일을 통해 `DoNotReply@aoai.kr` 발신자로 Azure OpenAI 프록시 구독 코드 및 GitHub Copilot 구독 코드가 온 것을 확인합니다.
-1. 아래 링크를 통해 GitHub Copilot 구독을 마무리합니다.
+1. Check the link below to see if the Azure OpenAI proxy code is working properly.
 
-   👉 GitHub Copilot 구독 신청 링크: [https://github.com/redeem](https://github.com/redeem) -->
+   👉 Azure OpenAI Proxy Playground Link: [https://proxy.aoai.kr/playground](https://proxy.aoai.kr/playground)
 
-<!--
-1. 아래 링크를 통해 Azure OpenAI 프록시 코드가 제대로 작동하는지 확인합니다.
+## Get started with Gitoub Codespaces.
 
-   👉 Azure OpenAI 프록시 플레이그라운드 링크: [https://proxy.aoai.kr/playground](https://proxy.aoai.kr/playground)
--->
-
-## GitHub Codespaces 시작
-
-1. 이 리포지토리를 자신의 GitHub 계정으로 포크합니다.
-1. 포크한 리포지토리에서 GitHub Codespaces 인스턴스를 생성합니다.
-
-    ![GitHub Codespaces 인스턴스 생성하기](./images/00-setup-01.png)
-
-1. GitHub 코드스페이스의 터미널에서 아래 명령어를 실행시켜 현재 리포지토리의 위치를 확인합니다.
-
+1. Fork this repository into your own GitHub account.
+1. Create a GitHub Codespaces instance from your forked repository.
+    ![Creating a Gitub Codespace Instance](./images/00-setup-01.png)
+1. Run the command below in a terminal in your GitHub codespace to see the location of your current repository.
     ```bash
     git remote -v
     ```
-
-   이 명령어를 실행하면 아래와 같은 결과가 나와야 합니다. 만약 `origin`에 `Azure-Samples`가 보이면 코드스페이스를 자신의 리포지토리에서 다시 만들어야 합니다.
-
+   When you run this command, you should get something like this: If you see 'Azure-Samples' in 'origin', you'll need to recreate the codespace in your own repository.
     ```bash
-    origin  https://github.com/<자신의 GitHub ID>/aspire-app-dev-in-a-day-ko (fetch)
-    origin  https://github.com/<자신의 GitHub ID>/aspire-app-dev-in-a-day-ko (push)
+    origin  https://github.com/<Your GitHub ID>/aspire-app-dev-in-a-day-ko (fetch)
+    origin  https://github.com/<Your GitHub ID>/aspire-app-dev-in-a-day-ko (push)
     upstream        https://github.com/Azure-Samples/aspire-app-dev-in-a-day-ko.git (fetch)
     upstream        https://github.com/Azure-Samples/aspire-app-dev-in-a-day-ko.git (push)
     ```
 
 ---
 
-축하합니다! 개발 환경 설정이 끝났습니다. 이제 [Session 01: Blazor 프론트엔드 웹 앱 개발](./01-blazor-frontend.md)로 넘어가세요.
+Congratulations! You're done setting up your development environment. Now let's move on to Session 01: Developing a Blazor Front-End Web App(./01-blazor-frontend.md).
