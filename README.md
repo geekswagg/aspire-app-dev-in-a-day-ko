@@ -20,6 +20,15 @@
 - [Azure CLI](https://learn.microsoft.com/ko-kr/cli/azure/what-is-azure-cli?WT.mc_id=dotnet-121695-juyoo)
 - [GitHub CLI](https://cli.github.com/)
 
+(
+- GitHub Account and GitHub Copilot Subscription: To participate in the workshop, you’ll need a GitHub account and an active GitHub Copilot subscription. GitHub Copilot is an AI-powered pair programmer that can be used in the VS Code web client or desktop application.
+- Visual Studio 2022 17.9+ or Visual Studio Code with C# Dev Kit Extension: Install Visual Studio 2022 17.9+ or Visual Studio Code along with the C# Dev Kit extension as your development environment.
+- .NET 8 SDK + Aspire Workload: Install the .NET 8 SDK and the Aspire workload.
+- node.js (optional): Install node.js if needed during the workshop.
+- Azure Subscription: You’ll need an Azure subscription to use Azure services.
+- Azure OpenAI Service Subscription: Obtain a subscription for Azure OpenAI services.
+- Azure Developer CLI, Azure CLI, GitHub CLI: Install the necessary command-line tools for the workshop.)
+
 ## Getting Started
 
 1. 이 리포지토리를 자신의 GitHub 계정으로 포크한 후 자신의 컴퓨터에 클론한 후 [이 문서](./docs/00-setup.md)부터 시작합니다.
