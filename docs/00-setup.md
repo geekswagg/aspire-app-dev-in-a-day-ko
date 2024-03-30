@@ -1,4 +1,4 @@
-## Session 00: Setting Up Your Development Environment
+# Session 00: Setting Up Your Development Environment
 
 In this session, you will set up the development environment required to conduct the workshop.
 
